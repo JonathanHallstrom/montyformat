@@ -139,7 +139,7 @@ If your search instead returns something else you should convert it to a score f
 
 ### Visit Distribution
 
-For each of the legal moves we also write what portion of the visits they received during the search, compared to the move that got the most visits.
+For each of the legal moves we write what portion of the visits they received during the search, compared to the move that got the most visits.
 
 Each move gets one `uint8_t` to represent how many visits it got, and the value is computed as the number of visits times 255 divided by the number of visits received by the move with the most visits.
 
