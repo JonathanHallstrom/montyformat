@@ -31,7 +31,7 @@ This part is a little complicated, because to save space the 8 bitboards (2 for 
 The compression is as follows:
 
 ```c
-bitboards[0] = white;
+bitboards[0] = black;
 bitboards[1] = rooks   | queens  | kings;
 bitboards[2] = knights | bishops | kings;
 bitboards[3] = pawns   | bishops | queens;
@@ -41,8 +41,8 @@ To decompress we do the following (justification for why this works is pretty st
 
 ```c
 uint64_t occupancy = bitboards[1] | bitboards[2] | bitboards[3];
-uint64_t white = bitboards[0];
-uint64_t black = occupancy ^ white;
+uint64_t black = bitboards[0];
+uint64_t white = occupancy ^ black;
 uint64_t kings = bitboards[1] & bitboards[2];
 uint64_t queens = bitboards[1] & bitboards[3];
 uint64_t rooks = bitboards[1] ^ kings ^ queens;
@@ -82,7 +82,7 @@ Moves are represented by `uint16_t`s with this layout: 4 bit flag, 6 bit destina
 
 To compute the representation for a move we do the following:
 ```c
-uint64_t move = flag | (source << 4) | (destination << 10);
+uint64_t move = flag | (destination << 4) | (source << 10);
 ```
 
 The source and destination squares are represented as follows: `0`=A1 `1`=A2 `3`=A3, ..., `8`=B1, ... `63`=H8
@@ -114,21 +114,21 @@ Knight from G1 to F3: \
 Source: 6 \
 Destination: 21 \
 Flag: 0 \
-Final result: 0 | (6 << 4) | (21 << 10) = 21600
+Final result: 0 | (21 << 4) | (6 << 10) = 6480
 
 
 Pawn from E2 to E4: \
 Source: 12 \
 Destination: 28 \
 Flag: 1 \
-Final result: 1 | (12 << 4) | (28 << 10) = 28865
+Final result: 1 | (28 << 4) | (12 << 10) = 12737
 
 
 Pawn from E2 to E1 capturing piece and promoting to a rook: \
 Source: 12 \
 Destination: 4 \
 Flag: 14 \
-Final result: 14 | (12 << 4) | (4 << 10) = 4302
+Final result: 14 | (4 << 4) | (12 << 10) = 12366
 
 ### Score
 
