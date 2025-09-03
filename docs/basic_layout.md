@@ -72,7 +72,7 @@ Each file is written as a `uint8_t` with `0` meaning the A file, `1` meaning the
 
 ## Game Outcome
 
-A single `uint8_t`, 0 for loss, 1 for draw, 2 for win (from the perspective of the side to move at the start). So if the game is from the standard chess starting position and white won you would write `2`.
+A single `uint8_t`, 0 for loss, 1 for draw, 2 for win (from the perspective of white). So if white won the game you would write `2`, and if black won the game you would write `0`. If the game is a draw you write `1`.
 
 ## Moves and their associated information
 
