@@ -6,7 +6,7 @@ For each move of the game we write which move was played, the score given to the
 
 So a full game looks as follows:
 
-\[Board]\[CastlingFiles](\[Move]\[Score]\[MoveCount]\[VisitDistribution])*[NullTerminator]
+\[Board]\[CastlingFiles][WDL](\[Move]\[Score]\[MoveCount]\[VisitDistribution])*[NullTerminator]
 
 All values are written in little endian.
 
@@ -63,7 +63,7 @@ Fullmove clock is the number of moves since the game started, starting from 1, s
 
 In QKqk order we write the files on which the rooks are for castling.
 
-If a castling right isn't available you should write the file farthest on that side of the board, for queenside castling this means the A file and for kingside this means the A file.
+If a castling right isn't available you should write the file farthest on that side of the board, for queenside castling this means the A file and for kingside this means the H file.
 
 If you're only supporting standard chess you can just write the standard `HAha` rook files.
 
