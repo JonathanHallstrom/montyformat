@@ -6,7 +6,7 @@ For each move of the game we write which move was played, the score given to the
 
 So a full game looks as follows:
 
-\[Board]\[CastlingFiles][WDL](\[Move]\[Score]\[MoveCount]\[VisitDistribution])*[NullTerminator]
+\[Board]\[CastlingFiles]\[WDL\](\[Move]\[Score]\[MoveCount]\[VisitDistribution])*[NullTerminator]
 
 All values are written in little endian.
 
