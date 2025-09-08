@@ -47,6 +47,7 @@ uint64_t kings = bitboards[1] & bitboards[2];
 uint64_t queens = bitboards[1] & bitboards[3];
 uint64_t rooks = bitboards[1] ^ kings ^ queens;
 uint64_t bishops = bitboards[2] & bitboards[3];
+uint64_t knights = bitboards[2] ^ bishops ^ kings;
 uint64_t pawns = bitboards[3] ^ bishops ^ queens;
 ```
 
