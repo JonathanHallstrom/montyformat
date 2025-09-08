@@ -54,7 +54,7 @@ uint64_t pawns = bitboards[3] ^ bishops ^ queens;
 ### Side To Move
 A single `uint8_t`, with white=`0` and black=`1`.
 
-### Side To Move
+### En passant square
 
 A single `uint8_t`, representing the target for en passant with `0`=A1 `1`=A2 `3`=A3, ..., `8`=B1, ... `63`=H8.
 If there is no valid ep target this value will be zero.
