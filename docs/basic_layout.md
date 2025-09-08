@@ -50,6 +50,8 @@ uint64_t bishops = bitboards[2] & bitboards[3];
 uint64_t knights = bitboards[2] ^ bishops ^ kings;
 uint64_t pawns = bitboards[3] ^ bishops ^ queens;
 ```
+### Side To Move
+A single `uint8_t`, with white=`0` and black=`1`.
 
 ### Castling Rights
 
