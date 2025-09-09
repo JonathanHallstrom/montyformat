@@ -146,6 +146,10 @@ Typically the search will have given the position a score from `0` to `1`, in wh
 
 If your search instead returns something else you should convert it to a score from `0` to `1` first, then multiply as above.
 
+### Move Count
+
+A single `uint8_t` representing the number of legal moves.
+
 ### Visit Distribution
 
 For each of the legal moves we write what portion of the visits they received during the search, compared to the move that got the most visits.
@@ -154,6 +158,7 @@ Each move gets one `uint8_t` to represent how many visits it got, and the value 
 
 To write this distribution we first write the number of moves.
 Then we write the `uint8_t`s we computed earlier, ordering by the `uint16_t` representing the move they are for (in the format described above).
+Note that the this part only contains the visits, **the moves are not stored**. To know which part of the visit distribution corresponds to which move when reading you will need to generate the moves and sort them according to their representation as described in this document.
 
 ## Null Terminator
 
