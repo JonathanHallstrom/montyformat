@@ -91,7 +91,7 @@ Moves are represented by `uint16_t`s with this layout: 4 bit flag, 6 bit destina
 
 To compute the representation for a move we do the following:
 ```c
-uint64_t move = flag | (destination << 4) | (source << 10);
+uint16_t move = flag | (destination << 4) | (source << 10);
 ```
 
 The source and destination squares are represented as follows: `0`=A1 `1`=A2 `3`=A3, ..., `8`=B1, ... `63`=H8
